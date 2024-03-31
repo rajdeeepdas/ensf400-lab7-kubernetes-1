@@ -4,13 +4,17 @@ metadata:
   name: nginx-1.11
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      name: nginx
+      version: "1.11"
   template:
     metadata:
       labels:
         name: nginx
         version: "1.11"
     spec:
-      containers: 
+      containers:
         - name: nginx
           image: nginx:1.11
           ports:

@@ -4,10 +4,19 @@ metadata:
   name: nginx-1.10
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      name: nginx     
+      version: "1.10" 
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1        
+      maxUnavailable: 50% 
   template:
     metadata:
       labels:
-        name: nginx
+        name: nginx     
         version: "1.10"
     spec:
       containers: 

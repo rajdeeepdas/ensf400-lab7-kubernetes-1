@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: orphan
+  labels:
+    unique-label: orphan-pod # Change this label to something unique
+spec:
+  containers:
+  - name: orphan
+    image: httpd
